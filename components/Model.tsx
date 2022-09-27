@@ -35,7 +35,7 @@ type GLTFResult = GLTF & {
 };
 
 export default function Model(props: JSX.IntrinsicElements['group']) {
-  const group = useRef<THREE.Group | null>(null);
+  const group = useRef<THREE.Group | any>();
   const { nodes, materials } = useGLTF('./alegria4.glb') as GLTFResult;
   const cameraControls = useRef<CameraControls | null>(null);
 
