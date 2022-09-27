@@ -30,7 +30,7 @@
     "@mantine/prism": "5.2.7",
     "@next/bundle-analyzer": "^12.1.4",
     "@react-three/drei": "^9.32.3",
-    "@react-three/fiber": "^8.8.4",
+    "@react-three/fiber": "^8.8.6",
     "@tabler/icons": "^1.78.1",
     "camera-controls": "^1.37.2",
     "cookies-next": "^2.1.1",
