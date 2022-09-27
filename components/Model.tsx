@@ -1,4 +1,3 @@
-/* eslint-disable no-tabs */
 import * as THREE from 'three';
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
@@ -19,6 +18,7 @@ type GLTFResult = GLTF & {
     Alegria_10: THREE.Mesh;
     Alegria_11: THREE.Mesh;
   };
+
   materials: {
     Puertas: THREE.MeshStandardMaterial;
     Mesa: THREE.MeshStandardMaterial;
@@ -40,7 +40,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const cameraControls = useRef<CameraControls | null>(null);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+
       <group position={[-1.3, 1.9, 0.01]} rotation={[0, -1.57, 0]}>
       <CameraControls ref={cameraControls} />
         <mesh
@@ -116,7 +116,6 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           material={materials.Cielo}
         />
       </group>
-    </group>
   );
 }
 
