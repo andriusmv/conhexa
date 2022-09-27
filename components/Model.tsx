@@ -40,7 +40,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const cameraControls = useRef<CameraControls | null>(null);
 
   return (
-<group ref={group}>
+<group ref={group} {...props}>
       <group position={[-1.3, 1.9, 0.01]} rotation={[0, -1.57, 0]}>
       <CameraControls ref={cameraControls} />
         <mesh
