@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import { CameraControls } from './camera-controls';
+import { Button } from '@mantine/core';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -38,85 +39,75 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF('./alegria4.glb') as GLTFResult;
   const cameraControls = useRef<CameraControls | null>(null);
+  const DEG45 = Math.PI / 4;
 
   return (
-<group ref={group} {...props}>
-      <group position={[-1.3, 1.9, 0.01]} rotation={[0, -1.57, 0]}>
-      <CameraControls ref={cameraControls} />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_1.geometry}
-          material={materials.Puertas}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_2.geometry}
-          material={materials.Mesa}
-          onClick={() => {
-						cameraControls.current?.setLookAt(-3, 1.5, -2, 5, 1.5, 0, true);
-					}}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_3.geometry}
-          material={materials.Muros}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_4.geometry}
-          material={materials.Marcos}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_5.geometry}
-          material={materials.Zocalos}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_6.geometry}
-          material={materials['alturas.013']}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_7.geometry}
-          material={materials['alturas.019']}
-          onClick={() => {
-					cameraControls.current?.setLookAt(-3, 1.5, -2, 5, 1.5, 0, true);
-					}}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_8.geometry}
-          material={materials['alturas.012']}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_9.geometry}
-          material={materials.Piso}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_10.geometry}
-          material={materials.Ventanas}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Alegria_11.geometry}
-          material={materials.Cielo}
-        />
+    <group ref={group} {...props}>
+        <group position={[-1.3, 1.9, 0.01]} rotation={[0, -1.57, 0]}>
+          <CameraControls ref={cameraControls} />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_1.geometry}
+            material={materials.Puertas} />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_2.geometry}
+            material={materials.Mesa}
+            onClick={() => {
+              cameraControls.current?.setLookAt(-3, 1.5, -2, 5, 1.5, 0, true);
+            } } />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_3.geometry}
+            material={materials.Muros} />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_4.geometry}
+            material={materials.Marcos} />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_5.geometry}
+            material={materials.Zocalos} />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_6.geometry}
+            material={materials['alturas.013']} />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_7.geometry}
+            material={materials['alturas.019']}
+            onClick={() => {
+              cameraControls.current?.setLookAt(-3, 1.5, -2, 5, 1.5, 0, true);
+            } } />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_8.geometry}
+            material={materials['alturas.012']} />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_9.geometry}
+            material={materials.Piso} />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_10.geometry}
+            material={materials.Ventanas} />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Alegria_11.geometry}
+            material={materials.Cielo} />
+        </group>
       </group>
-</group>
   );
 }
 

@@ -25,7 +25,11 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+        <MantineProvider theme={{ colorScheme,
+        fontFamily: 'Helvetica, sans-serif',
+        fontFamilyMonospace: 'Monaco, Courier, monospace',
+        headings: { fontFamily: 'Helvetica, sans-serif', fontWeight: 800 },
+      }} withGlobalStyles withNormalizeCSS> 
           <NotificationsProvider>
             <Component {...pageProps} />
           </NotificationsProvider>
