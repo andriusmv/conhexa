@@ -2,8 +2,8 @@ import * as THREE from 'three';
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
-import { CameraControls } from './camera-controls';
 import { Button } from '@mantine/core';
+import { CameraControls } from './camera-controls';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -39,7 +39,6 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF('./alegria4.glb') as GLTFResult;
   const cameraControls = useRef<CameraControls | null>(null);
-  const DEG45 = Math.PI / 4;
 
   return (
     <group ref={group} {...props}>
@@ -49,7 +48,8 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
             castShadow
             receiveShadow
             geometry={nodes.Alegria_1.geometry}
-            material={materials.Puertas} />
+            material={materials.Puertas}
+          />
           <mesh
             castShadow
             receiveShadow
@@ -57,27 +57,32 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
             material={materials.Mesa}
             onClick={() => {
               cameraControls.current?.setLookAt(-3, 1.5, -2, 5, 1.5, 0, true);
-            } } />
+            }}
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Alegria_3.geometry}
-            material={materials.Muros} />
+            material={materials.Muros}
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Alegria_4.geometry}
-            material={materials.Marcos} />
+            material={materials.Marcos}
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Alegria_5.geometry}
-            material={materials.Zocalos} />
+            material={materials.Zocalos}
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Alegria_6.geometry}
-            material={materials['alturas.013']} />
+            material={materials['alturas.013']}
+          />
           <mesh
             castShadow
             receiveShadow
@@ -85,29 +90,34 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
             material={materials['alturas.019']}
             onClick={() => {
               cameraControls.current?.setLookAt(-3, 1.5, -2, 5, 1.5, 0, true);
-            } } />
+            }}
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Alegria_8.geometry}
-            material={materials['alturas.012']} />
+            material={materials['alturas.012']}
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Alegria_9.geometry}
-            material={materials.Piso} />
+            material={materials.Piso}
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Alegria_10.geometry}
-            material={materials.Ventanas} />
+            material={materials.Ventanas}
+          />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Alegria_11.geometry}
-            material={materials.Cielo} />
+            material={materials.Cielo}
+          />
         </group>
-      </group>
+    </group>
   );
 }
 
