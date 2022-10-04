@@ -34,6 +34,11 @@ export default function Unit() {
         <Link href="https://kuula.co/share/collection/7khdk?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&inst=es" passHref>
         <Anchor component="a" color="lime">See the previous version here.</Anchor>
         </Link>
+        <Space h="xl" />
+        <Text>... or get in touch with us</Text>
+        <Link href="https://www.instagram.com/conhexa/?hl=en" passHref>
+        <Anchor component="a" color="dimmed"> here.</Anchor>
+        </Link>
               </Navbar>}
       header={<Header height={60} p="xs">
         <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
@@ -72,7 +77,7 @@ export default function Unit() {
 
               </Header>}
     >
-<Container fluid>
+<Container fluid style={{ height: '100%' }}>
 
         <Canvas>
         <CameraControls ref={cameraControls} />
