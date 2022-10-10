@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Button } from '@mantine/core';
@@ -39,6 +39,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF('./alegria4.glb') as GLTFResult;
   const cameraControls = useRef<CameraControls | null>(null);
+  const DEG45 = Math.PI / 4;
 
   return (
     <group ref={group} {...props}>
@@ -49,6 +50,9 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
             receiveShadow
             geometry={nodes.Alegria_1.geometry}
             material={materials.Puertas}
+            onClick={() => {
+              cameraControls.current?.rotate(DEG45, 0, true);
+            }}
           />
           <mesh
             castShadow
